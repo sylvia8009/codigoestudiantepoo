@@ -105,14 +105,16 @@ public class Empleado {
      * @return true si la edad es valida y fue asignada; false en caso contrario
      */
     public boolean setEdad(int nuevaEdad) {
-        // ====================================================================
-        // ESCRIBE TU CODIGO AQUI:
-        // PISTA: Evalua con un if (nuevaEdad >= 18 && nuevaEdad <= 70)
-        // ====================================================================
-
-        // [PLANTILLA TEMPORAL]: Reemplazar con tu implementacion completa
-        this.edad = nuevaEdad; 
+        // Regla: La edad debe estar entre 18 y 70 años inclusive
+    if (nuevaEdad >= 18 && nuevaEdad <= 70) {
+        this.edad = nuevaEdad;
         return true;
+    } else {
+        System.out.println("[ERROR INVARIANTE] La edad debe estar entre 18 y 70 años.");
+        this.edad = 18; // Valor por defecto seguro
+        return false;
+    }
+       
     }
 
     /**
@@ -129,14 +131,15 @@ public class Empleado {
      * @return true si el salario cumple con la invariante; false en caso contrario
      */
     public boolean setSueldo(double nuevoSueldo) {
-        // ====================================================================
-        // ESCRIBE TU CODIGO AQUI:
-        // PISTA: Evalua con un if (nuevoSueldo >= SALARIO_BASICO_ECUADOR)
-        // ====================================================================
-
-        // [PLANTILLA TEMPORAL]: Reemplazar con tu implementacion completa
+        // Regla: El sueldo no puede ser inferior al salario básico
+    if (nuevoSueldo >= 460.00) {
         this.sueldo = nuevoSueldo;
         return true;
+    } else {
+        System.out.println("[ERROR INVARIANTE] El sueldo no puede ser menor a $460.00.");
+        this.sueldo = 460.00; // Valor por defecto seguro
+        return false;
+    }
     }
 
     // ------------------------------------------------------------------------
